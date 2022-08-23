@@ -1,33 +1,23 @@
-import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import type { ErrorBoundaryComponent, LoaderFunction } from "@remix-run/node";
 
-type User = {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-  bio: string;
-};
-
-type LoaderData = {
-  user: User;
-};
+import type { Types } from "~/features/github";
+import { Repositories } from "~/features/github";
+import { GithubAPI } from "~/features/github";
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const res = await fetch(`https://api.github.com/users/${params.username}`);
   return {
-    user: await res.json(),
+    user: await GithubAPI.getGithubUser(params.username),
+    repos: await GithubAPI.getGithubUserRepos(params.username),
   };
 };
 
+export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
+  return <h3>Deu erro ai patrão = {error.message}</h3>;
+};
+
 export default function Index() {
-  const { user } = useLoaderData<LoaderData>();
+  const { user, repos } = useLoaderData<Types.Repositories.LoaderData>();
 
-  console.log({ user });
-
-  return (
-    <>
-      <h1>Hello World {user.avatar_url}</h1>
-      <img src={user.avatar_url} alt="Imagem" />
-    </>
-  );
+  return <Repositories user={user} repos={repos} />;
 }
