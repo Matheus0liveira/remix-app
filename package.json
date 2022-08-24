@@ -29,6 +29,7 @@
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
     "@remix-run/dev": "^1.6.8",
     "@remix-run/eslint-config": "^1.6.8",
     "@types/lodash.pick": "^4.4.7",
