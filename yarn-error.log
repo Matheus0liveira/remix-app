@@ -1,5 +1,5 @@
 Arguments: 
-  /home/matheus0liveira/.nvm/versions/node/v14.19.3/bin/node /home/matheus0liveira/.nvm/versions/node/v14.19.3/bin/yarn add -D @types/heroicons
+  /home/matheus0liveira/.nvm/versions/node/v14.19.3/bin/node /home/matheus0liveira/.nvm/versions/node/v14.19.3/bin/yarn add prisma @prisma-client
 
 PATH: 
   /home/matheus0liveira/.nvm/versions/node/v14.19.3/bin:/home/matheus0liveira/.local/share/zinit/polaris/bin:/home/matheus0liveira/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,8 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fheroicons: Not found
-      at Request.params.callback [as _callback] (/home/matheus0liveira/.nvm/versions/node/v14.19.3/lib/node_modules/yarn/lib/cli.js:66145:18)
+  Error: https://registry.yarnpkg.com/@prisma-client: Request "https://registry.yarnpkg.com/@prisma-client" returned a 405
+      at Request.params.callback [as _callback] (/home/matheus0liveira/.nvm/versions/node/v14.19.3/lib/node_modules/yarn/lib/cli.js:66154:18)
       at Request.self.callback (/home/matheus0liveira/.nvm/versions/node/v14.19.3/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (events.js:400:28)
       at Request.<anonymous> (/home/matheus0liveira/.nvm/versions/node/v14.19.3/lib/node_modules/yarn/lib/cli.js:141862:10)
@@ -42,11 +42,12 @@ npm manifest:
     },
     "dependencies": {
       "@headlessui/react": "^1.6.6",
-      "@heroicons/react": "^2.0.1",
+      "@heroicons/react": "v1",
       "@remix-run/node": "^1.6.8",
       "@remix-run/react": "^1.6.8",
       "@remix-run/serve": "^1.6.8",
       "@tailwindcss/forms": "^0.5.2",
+      "lodash.pick": "^4.4.0",
       "npm-run-all": "^4.1.5",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
@@ -56,6 +57,7 @@ npm manifest:
     "devDependencies": {
       "@remix-run/dev": "^1.6.8",
       "@remix-run/eslint-config": "^1.6.8",
+      "@types/lodash.pick": "^4.4.7",
       "@types/react": "^18.0.15",
       "@types/react-dom": "^18.0.6",
       "eslint": "^8.20.0",
@@ -1136,10 +1138,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.6.6.tgz#3073c066b85535c9d28783da0a4d9288b5354d0c"
     integrity sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==
   
-  "@heroicons/react@^2.0.1":
-    version "2.0.1"
-    resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.1.tgz#4794a9fec3580c0157bbc5764daa63eb4e9b8846"
-    integrity sha512-81PZVKt/wlkB/F/0vdXyQQ+IzfsneD+Mslvkl+xU5sn6UkPfHLL0HquL4WTJyw5TQeIpRu69wSYDs3LkolSHjw==
+  "@heroicons/react@v1":
+    version "1.0.6"
+    resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
+    integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
   
   "@humanwhocodes/config-array@^0.10.4":
     version "0.10.4"
@@ -1546,6 +1548,18 @@ Lockfile:
     integrity sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==
     dependencies:
       "@types/node" "*"
+  
+  "@types/lodash.pick@^4.4.7":
+    version "4.4.7"
+    resolved "https://registry.yarnpkg.com/@types/lodash.pick/-/lodash.pick-4.4.7.tgz#4a700075758692ce6ee48bee08e6fd4004d5da53"
+    integrity sha512-HgdyKz7/1+oeoVzbpu1XiX/Bti9AUksHtOILH38T07aKvqoirzcdOsrO2+Yg3L51Hv/8m1MetvHZEUGeABiTiQ==
+    dependencies:
+      "@types/lodash" "*"
+  
+  "@types/lodash@*":
+    version "4.14.184"
+    resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.184.tgz#23f96cd2a21a28e106dc24d825d4aa966de7a9fe"
+    integrity sha512-RoZphVtHbxPZizt4IcILciSWiC6dcn+eZ8oX9IWEYfDMcocdd42f7NPI6fQj+6zI8y4E0L7gu2pcZKLGTRaV9Q==
   
   "@types/mdast@^3.0.0":
     version "3.0.10"
@@ -4474,6 +4488,11 @@ Lockfile:
     version "4.6.2"
     resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
     integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+  
+  lodash.pick@^4.4.0:
+    version "4.4.0"
+    resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+    integrity sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==
   
   lodash@^4.17.21:
     version "4.17.21"
