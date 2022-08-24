@@ -7,7 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { GlobalLoading } from "./components/GlobalLoading";
+import { GlobalLoading } from "./components";
 
 import styles from "./tailwind.css";
 
