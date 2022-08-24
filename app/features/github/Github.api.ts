@@ -5,7 +5,7 @@ import type { Types } from ".";
 const config = {
   headers: {
     accept: "application/vnd.github.v3+json",
-    Authorization: "token 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",
+    Authorization: `token ${process.env.GITHUB_ACCESS_KEY}`,
   },
 };
 
