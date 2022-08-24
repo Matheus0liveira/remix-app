@@ -70,7 +70,7 @@ export const Repository = ({ repo }: RepositoryProps) => {
                   aria-hidden="true"
                 />
                 <span className="text-xs text-gray-400">
-                  {repo.stargazers_coubt}
+                  {repo.stargazers_count}
                 </span>
               </div>
             </button>
