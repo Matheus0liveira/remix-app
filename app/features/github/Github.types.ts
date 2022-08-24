@@ -10,7 +10,7 @@ export namespace Repositories {
     id: number;
     name: string;
     full_name: string;
-    stargazers_coubt: string;
+    stargazers_count: string;
     html_url: string;
     language: string;
   };
