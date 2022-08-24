@@ -2,29 +2,22 @@ import type { Course } from "@prisma/client";
 import type { ErrorBoundaryComponent, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { CatchBoundaryComponent } from "@remix-run/react/dist/routeModules";
-import { db } from "~/utils/db.server";
+import { AdminAPI } from "~/features/admin";
+import { Courses } from "~/features/admin";
 
 type LoaderData = {
   courses: Course[];
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  const courses = await db.course.findMany();
-  return { courses };
+  return { courses: await AdminAPI.getCourses() };
 };
 
 export default function () {
   const { courses } = useLoaderData<LoaderData>();
 
   console.log(courses);
-  return (
-    <div>
-      <h1>Courses</h1>
-      {courses.map((course) => (
-        <h1 key={course.id}>{course.name}</h1>
-      ))}
-    </div>
-  );
+  return <Courses courses={courses as unknown as Course[]} />;
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
