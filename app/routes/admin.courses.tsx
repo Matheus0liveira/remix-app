@@ -16,7 +16,6 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function () {
   const { courses } = useLoaderData<LoaderData>();
 
-  console.log(courses);
   return <Courses courses={courses as unknown as Course[]} />;
 }
 
