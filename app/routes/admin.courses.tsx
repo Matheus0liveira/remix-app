@@ -2,6 +2,7 @@ import type { Course } from "@prisma/client";
 import type { ErrorBoundaryComponent, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { CatchBoundaryComponent } from "@remix-run/react/dist/routeModules";
+import { Error, NotFound } from "~/components";
 import { AdminAPI } from "~/features/admin";
 import { Courses } from "~/features/admin";
 
@@ -20,13 +21,9 @@ export default function () {
 }
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
-  return <div>Whoops! - {error.message}</div>;
+  return <Error error={error} />;
 };
 
 export const CatchBoundary: CatchBoundaryComponent = () => {
-  return <h3>Not Found</h3>;
+  return <NotFound message="Course not found" />;
 };
-
-// export const action: ActionFunction = ({ params }) => {
-//   return {};
-// };

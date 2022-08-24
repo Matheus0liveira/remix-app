@@ -4,6 +4,7 @@ import type { ErrorBoundaryComponent, LoaderFunction } from "@remix-run/node";
 import type { Types } from "~/features/github";
 import { Repositories } from "~/features/github";
 import { GithubAPI } from "~/features/github";
+import { Error } from "~/components";
 
 export const loader: LoaderFunction = async ({ params }) => {
   return {
@@ -13,7 +14,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => {
-  return <h3>Deu erro ai patrão = {error.message}</h3>;
+  return <Error error={error} />;
 };
 
 export default function Index() {
